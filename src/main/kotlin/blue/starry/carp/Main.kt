@@ -4,6 +4,10 @@ import io.ktor.application.*
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
 
-fun main() {
-    embeddedServer(CIO, module = Application::module)
+suspend fun main() {
+    RepositoryManager.Packages.toList().forEach {
+        println(it)
+    }
+
+    embeddedServer(CIO, host = Env.HTTP_HOST, port = Env.HTTP_PORT, module = Application::module)
 }

@@ -9,6 +9,7 @@ plugins {
 
 object Versions {
     const val Ktor = "1.5.2"
+    const val ZstdJni = "1.4.8-7"
 
     const val KotlinLogging = "2.0.4"
     const val Logback = "1.2.3"
@@ -20,6 +21,7 @@ object Versions {
 object Libraries {
     const val KtorServerCIO = "io.ktor:ktor-server-cio:${Versions.Ktor}"
     const val KtorClientCIO = "io.ktor:ktor-client-cio:${Versions.Ktor}"
+    const val ZstdJni = "com.github.luben:zstd-jni:${Versions.ZstdJni}"
 
     const val KotlinLogging = "io.github.microutils:kotlin-logging:${Versions.KotlinLogging}"
     const val LogbackCore = "ch.qos.logback:logback-core:${Versions.Logback}"
@@ -29,7 +31,8 @@ object Libraries {
 
     val ExperimentalAnnotations = setOf(
         "kotlin.time.ExperimentalTime",
-        "kotlinx.coroutines.FlowPreview"
+        "kotlinx.coroutines.FlowPreview",
+        "kotlin.io.path.ExperimentalPathApi"
     )
 }
 
@@ -40,6 +43,7 @@ repositories {
 dependencies {
     implementation(Libraries.KtorServerCIO)
     implementation(Libraries.KtorClientCIO)
+    implementation(Libraries.ZstdJni)
 
     implementation(Libraries.KotlinLogging)
     implementation(Libraries.LogbackCore)

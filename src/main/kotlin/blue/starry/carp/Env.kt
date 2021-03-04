@@ -5,6 +5,8 @@ import kotlin.properties.ReadOnlyProperty
 object Env {
     val HTTP_HOST by string { "0.0.0.0" }
     val HTTP_PORT by int { 20503 }
+
+    val UPDATE_INTERVAL_MIN by int { 15 }
 }
 
 private fun string(default: () -> String): ReadOnlyProperty<Env, String> = ReadOnlyProperty { _, property ->
